@@ -12,12 +12,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+
 const db = mysql.createConnection({
-    host: 'localhost',
-    port: 3307,
-    user: 'root',
-    password: '',
-    database: 'crud'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORd,
+    database: process.env.DB_NAME
 });
 
 db.connect(err => { //funcion callback que se ejecuta solo despues de que db.connect termine su tarea
